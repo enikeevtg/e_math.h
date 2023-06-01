@@ -15,15 +15,16 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 CC = gcc
-CF = -Wall -Werror -Wextra -g
+AR = ar rc
+RM = rm -f
+
+CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
+ASAN = -g -fsanitize=address
+
 SRC = main.c e_math.c
 OBJ = $(SRC:.c=.o)
 EXE = e_math
-
-AR = ar rc
-
-RM = rm -f
 
 all: clean build
 

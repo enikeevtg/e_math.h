@@ -21,15 +21,17 @@ long double e_asin(double x) {
   if (x == 1.0 || x == -1.0) {  // boundary values duck tape:)
     res = x * E_PI2;
   } else if (-1.0 < x && x < 1.0) {
+    int sign = (x >= 0 ? 1 : -1);  // sign of 'x'
     int term_num = 0;
-    long double term = x;  // first series member
+    long double term = fabs(x);  // first series member
     do {
       res += term;
       // next term of series:
       term_num++;
-      term *= x * x * (2 * term_num - 1) / (2 * term_num) *
-              (2 * term_num - 1) / (2 * term_num + 1);
-    } while (term > PRECISION * 1E-6);
+      term *= x * x * (2 * term_num - 1) / (2 * term_num) * (2 * term_num - 1) /
+              (2 * term_num + 1);
+    } while (term > PRECISION);
+    res *= sign;
   } else {
     res = E_NAN;
   }
@@ -129,5 +131,20 @@ long double e_floor(double x) {
     else if (x > 0 && x < E_INT64_MAX)
       result = (long long int)result;
   }
+  return result;
+}
+
+long double e_fabs(double x) {
+  long double result = 0;
+  if (x == x) {
+    if ((x > E_DBL_MIN) && (x < E_DBL_MAX)) {
+      if (x < 0)
+        result = -1.0 * x;
+      else
+        result = 1.0 * x;
+    } else
+      result = PLUS_8;
+  } else
+    result = E_NAN;
   return result;
 }

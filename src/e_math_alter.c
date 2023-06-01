@@ -62,6 +62,35 @@ long double sin_cos_series(double x, long double term, int rate) {
 }
 
 /*==============================================================================
+                          15 long double tan(double x):
+                    Tangent computing with Maclaurin series
+                                It does not work!
+==============================================================================*/
+long double e_tan_mc(double x) {
+  long double res = 0.0;
+  if (isNAN(x) || isINF(x)) {  // nan a infinity value checking
+    res = E_NAN;
+  } else {
+    if (x >= E_PI2) x = fmod(x, E_PI2) - E_PI2;
+    if (x <= -E_PI2) x = fmod(x, E_PI2) + E_PI2;
+    int i = 1;             // number of series member
+    long double term = x;  // first series member
+    BERNULLI;
+    double pw;
+    double factorial = 2.;
+    do {
+      res += term;
+      // next term of series:
+      i++;
+      pw = pow(2., 2. * i);
+      factorial *= (2. * i - 1.) * (2. * i);
+      term = bernulli[i - 1] * pw * (pw - 1.) / factorial * pow(x, 2. * i - 1.);
+    } while (PRECISION < term && term < 1E16);
+  }
+  return res;
+}
+
+/*==============================================================================
                           ADDITIONAL FUNCTIONS
 ==============================================================================*/
 int isNAN(double x) { return x != x; }
