@@ -4,24 +4,40 @@
  * enikeev.tg@gmail.com
  */
 
-#ifndef SRC_TAGIR_E_MATH_H_
-#define SRC_TAGIR_E_MATH_H_
+#ifndef SRC_E_MATH_H_
+#define SRC_E_MATH_H_
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-#define E_PI 3.141592653589793238462643383280
-#define E_PI2 1.570796326794896619231321691640
-#define PRECISION 1E-11
+#define E_PI 3.141592653589793115997963468544185161590576171875
+#define E_PI2 1.5707963267948965579989817342720925807952880859375
+#define PRECISION 1E-7
+
+#define PLUS_8 1.0 / 0.0
+#define MINUS_8 -1.0 / 0.0
+#define E_NAN 0.0 / 0.0
+
+// #define e_isNan(x) __builtin_isnan(x)
 
 long double e_acos(double x);  // 2
 long double e_asin(double x);  // 3
-long double e_cos(double x);  // 6
-long double e_sin(double x);  // 13
-long double e_tan(double x);  // 15
+long double e_sin(double x);   // 6
+long double e_cos(double x);   // 13
+long double e_tan(double x);   // 15
 
-long double e_cos_alter(double x);  // 6
-long double e_sin_alter(double x);  // 13
-long double sin_cos_mclrn(double x, long double term, int rate);  // for 6 && 13
+// evgeny:
+#define E_INT64_MIN -9223372036854775807
+#define E_INT64_MAX 9223372036854775807
 
-#endif  // SRC_TAGIR_E_MATH_H_
+long double e_fmod(double x, double y);
+long double e_ceil(double x);
+long double e_floor(double x);
+
+/*==============================================================================
+                          ADDITIONAL FUNCTIONS
+==============================================================================*/
+int isNAN(double x);
+int isINF(double x);
+
+#endif  // SRC_E_MATH_H_
