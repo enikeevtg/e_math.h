@@ -7,6 +7,8 @@
 #ifndef SRC_E_MATH_H_
 #define SRC_E_MATH_H_
 
+#include "e_math/internal_math.h"
+
 #include <math.h>
 #include <stdio.h>
 
@@ -18,7 +20,7 @@
 #define MINUS_8 -1.0 / 0.0
 #define E_NAN 0.0 / 0.0
 
-// #define e_isNan(x) __builtin_isnan(x)
+// #define e_isNan(x) __builtin_isnan(x)  // nan checking
 
 long double e_acos(double x);  // 2
 long double e_asin(double x);  // 3
@@ -36,11 +38,5 @@ long double e_fmod(double x, double y);
 long double e_ceil(double x);
 long double e_floor(double x);
 long double e_fabs(double x);
-
-/*==============================================================================
-                          ADDITIONAL FUNCTIONS
-==============================================================================*/
-int isNAN(double x);
-int isINF(double x);
 
 #endif  // SRC_E_MATH_H_
