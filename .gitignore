@@ -6,7 +6,7 @@
 *.bash
 
 # Executables
-e_math
+libtest
 
 # Prerequisites
 *.d

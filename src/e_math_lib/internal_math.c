@@ -32,6 +32,6 @@ long double sin_cos_mclrn(double x, long double term, int rate) {
       term_num++;
       term *= x * x / (2 * term_num * (2 * term_num + rate));
     } while (term > PRECISION / 1000.0);
-    return res;
   }
+  return res;
 }

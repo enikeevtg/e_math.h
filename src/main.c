@@ -10,7 +10,7 @@
 #include "e_math.h"
 
 int main() {
-  double x = -0.5;
+  double x = E_NAN;
   // scanf("%lf", &x);
 
   // cos(x):
