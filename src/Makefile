@@ -22,19 +22,20 @@ CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
 ASAN = -g -fsanitize=address
 
+LIB = e_math.a
 SRC = main.c e_math.c
 OBJ = $(SRC:.c=.o)
-EXE = e_math
+EXE = run_test
 
 all: clean build
 
-build: e_math.a main.o 
-	$(CC) main.o -L. -l_e_math -o $(EXE)
+build: $(LIB) main.o 
+	$(CC) main.o -L. $(LIB) -o $(EXE)
 
 main.o:
 	$(CC) $(CF) $(STD) main.c -c
 
-e_math.a: e_math.o e_math_lib.o
+$(LIB): e_math.o e_math_lib.o
 	$(AR) lib_$@ $^
 
 e_math.o:

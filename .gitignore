@@ -6,7 +6,7 @@
 *.bash
 
 # Executables
-libtest
+run_test
 
 # Prerequisites
 *.d
