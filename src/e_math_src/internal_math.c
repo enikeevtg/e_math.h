@@ -4,7 +4,7 @@
  * enikeev.tg@gmail.com
  */
 
-#include "internal_math.h"
+#include "../internal_mathfuncs.h"
 
 /*==============================================================================
                               Checking functions

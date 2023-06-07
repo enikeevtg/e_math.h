@@ -1,71 +1,56 @@
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                                           #
-#    src/Makefile для проекта e_math                                        #
-#    (c) T. Enikeev                                                         #
-#    enikeev.tg@gmail.com                                                   #
-#                                                                           #
-#    Для справки:                                                           #
-#    $@ Имя цели обрабатываемого правила                                    #
-#    $< Имя первой зависимости обрабатываемого правила                      #
-#    $^ Список всех зависимостей обрабатываемого правила                    #
-#    $(SRC:.c=.o) - renaming SRC *.c -> *.o                                 #
-#    $(^:.c=.o) - Список всех зависимостей обрабатываемого правила          #
-#                 c переименованием расширений *.c -> *.o                   #
-#                                                                           #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+# utilities
 CC = gcc
-AR = ar rc
-RM = rm -f
+AR = ar rs
+RAN = ranlib
+RM = rm -rf
+MK = mkdir -p
 
+# utilities options
 CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
 ASAN = -g -fsanitize=address
 
-LIB = e_math.a
-SRC = main.c e_math.c
-OBJ = $(SRC:.c=.o)
-EXE = run_test
+# filenames
+SRCDIR = ./e_math_src/
+OBJDIR = ./e_math_obj/
+SRC = $(wildcard $(SRCDIR)*.c)
+OBJ = $(patsubst $(SRCDIR)%.c, $(OBJDIR)%.o, $(SRC))
+TARGET = e_math.a
+TEST = libtest
 
-all: clean build
+all: clean test e_math.a gcov_report
 
-build: $(LIB) main.o 
-	$(CC) main.o -L. $(LIB) -o $(EXE)
+# LIBRARY BUILDING
+$(TARGET): objects 
+	@$(AR) $@ $(OBJ)
+	@$(RAN) $@
+	@echo "$(AR): creating library e_math.a \033[0;32msuccess\033[0m"
 
-main.o:
-	$(CC) $(CF) $(STD) main.c -c
+objects: objdir $(OBJ) OBJ_SUCCESS
 
-$(LIB): e_math.o e_math_lib.o
-	$(AR) lib_$@ $^
+objdir:
+	@mkdir -p $(OBJDIR)
 
-e_math.o:
-	$(CC) $(CF) $(STD) e_math.c -c
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	@$(CC) $(CF) -c $^ -o $@
 
-e_math_lib.o:
-	$(CC) $(CF) $(STD) e_math_lib/*.c -c ./e_math_lib
+OBJ_SUCCESS:
+	@echo "$(CC): objects compilation \033[0;32msuccsess\033[0m"
+# END OF LIBRARY BUILDING
 
+# SERVICE
 style:
+	clang-format -style=google -n *.h *.c
+	clang-format -style=google -n $(SRCDIR)*.h $(SRCDIR)*.c
+
+tostyle:
 	clang-format -style=google -i *.h *.c
+	clang-format -style=google -i $(SRCDIR)*.h $(SRCDIR)*.c
 
-clean:
-	$(RM) *.o *.a $(EXE)
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                                           #
-#    Справка по созданию статической библиотеки:                            #
-#    -L$(COM) - опция -L и адрес каталога относительно Makefile,            #
-#              где при компоновке искать файл библиотеки                    #
-#    -lmylib - опция -l и имя файла библиотеки libmylib.a без расширения и  #
-#              префикса lib для подключения библиотеки к программе          #
-#                                                                           #
-#    ar - вызов архиватора для создания архива, который может подключаться  #
-#         к программе во время компоновки на правах библиотеки              #
-#    Опции архиватора:                                                      #
-#    r - cоздаёт архив, добавляет или заменяет файлы в существующем архиве  #
-#    x - извлекаются файлы из архива                                        #
-#    c - приостанавливает вывод сообщений о том, что создаётся библиотека   #
-#    v - включается режим подробных сообщений                               #
-#                                                                           #
-#    ranlib - пocтpoeниe oглaвлeния библиoтeки                              #
-#                                                                           #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+fclean:
+	@$(RM) $(OBJDIR)
+	@echo "full clean: $(OBJDIR) \033[0;31mdeleted\033[0m"
+	@$(RM) $(TEST)
+	@echo "full clean: $(TEST) \033[0;31mdeleted\033[0m"
+	@$(RM) $(TARGET)
+	@echo "full clean: $(TARGET) \033[0;31mdeleted\033[0m"

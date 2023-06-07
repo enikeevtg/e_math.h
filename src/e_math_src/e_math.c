@@ -4,7 +4,7 @@
  * enikeev.tg@gmail.com
  */
 
-#include "e_math.h"
+#include "../e_math.h"
 
 // evgeny:
 long double e_fmod(double x, double y) {

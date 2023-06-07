@@ -7,7 +7,7 @@
 #ifndef SRC_E_MATH_H_
 #define SRC_E_MATH_H_
 
-#include "e_math_lib/internal_math.h"
+#include "internal_mathfuncs.h"
 
 #include <math.h>
 #include <stdio.h>
