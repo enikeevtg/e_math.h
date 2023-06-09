@@ -3,8 +3,8 @@
 * (c) T. Enikeev
 * enikeev.tg@gmail.com
 *
-* @brief cosine computing
-* @return an cos(x) value
+* @brief Cosine computing
+* @return The cos(x) value
 **/
 
 #include "../e_math.h"

@@ -3,8 +3,8 @@
 * (c) T. Enikeev
 * enikeev.tg@gmail.com
 *
-* @brief sine computing
-* @return an sin(x) value
+* @brief Sine computing
+* @return The sin(x) value
 **/
 
 #include "../e_math.h"

@@ -3,8 +3,8 @@
 * (c) T. Enikeev
 * enikeev.tg@gmail.com
 *
-* @brief tangent computing
-* @return an tan(x) value
+* @brief Tangent computing
+* @return The tan(x) value
 **/
 
 #include "../e_math.h"

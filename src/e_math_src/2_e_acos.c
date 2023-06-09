@@ -3,9 +3,9 @@
 * (c) T. Enikeev
 * enikeev.tg@gmail.com
 *
-* @brief arc cosine computing
-* @warning x argument must be in the range [-1, 1]
-* @return an arccos(x) value
+* @brief Arc cosine computing
+* @warning The x argument must be in the range [-1, 1]
+* @return The arccos(x) value
 **/
 
 #include "../e_math.h"

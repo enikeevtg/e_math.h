@@ -1,8 +1,8 @@
-/*
- * src/e_math.h
- * (c) T. Enikeev
- * enikeev.tg@gmail.com
- */
+/**
+* src/e_math.h
+* (c) T. Enikeev
+* enikeev.tg@gmail.com
+**/
 
 #ifndef SRC_E_MATH_H_
 #define SRC_E_MATH_H_

@@ -3,9 +3,9 @@
 * (c) T. Enikeev
 * enikeev.tg@gmail.com
 *
-* @brief arc sine computing
-* @warning x argument must be in the range [-1, 1]
-* @return an arcsin(x) value
+* @brief Arc sine computing
+* @warning The x argument must be in the range [-1, 1]
+* @return The arcsin(x) value
 **/
 
 #include "../e_math.h"
