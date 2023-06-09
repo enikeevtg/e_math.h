@@ -1,8 +1,8 @@
-/*
- * src/e_math.c
- * (c) T. Enikeev
- * enikeev.tg@gmail.com
- */
+/**
+* src/e_math.c
+* (c) T. Enikeev
+* enikeev.tg@gmail.com
+**/
 
 #include "../e_math.h"
 

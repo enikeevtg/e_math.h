@@ -1,18 +1,17 @@
-/*
- * src/15_e_tan.c
- * (c) T. Enikeev
- * enikeev.tg@gmail.com
- */
+/**
+* src/15_e_tan.c
+* (c) T. Enikeev
+* enikeev.tg@gmail.com
+*
+* @brief tangent computing
+* @return an tan(x) value
+**/
 
 #include "../e_math.h"
 
-/*==============================================================================
-                        15 long double tan(double x):
-                            Tangent computing
-==============================================================================*/
 long double e_tan(double x) { return e_sin(x) / e_cos(x); }
 
-// ANOTHER WAYS:
+// ANOTHER WAYS (still doesn't work):
 /*
 #define BERNULLI                                                       \
   long double bernulli[12] = {1. / 6,       1. / 30,      1. / 42,     \

@@ -1,15 +1,15 @@
-/*
- * src/3_asin.c
- * (c) T. Enikeev
- * enikeev.tg@gmail.com
- */
+/**
+* src/3_asin.c
+* (c) T. Enikeev
+* enikeev.tg@gmail.com
+*
+* @brief arc sine computing
+* @warning x argument must be in the range [-1, 1]
+* @return an arcsin(x) value
+**/
 
 #include "../e_math.h"
 
-/*==============================================================================
-                          3 long double asin(double x)
-                              Arc sine computing
-==============================================================================*/
 long double e_asin(double x) {
   long double res = 0.0;
   if (x == 1.0 || x == -1.0) {  // boundary values duck tape:)

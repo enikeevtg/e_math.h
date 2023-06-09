@@ -29,7 +29,7 @@ $(TARGET): objects
 objects: objdir $(OBJ) OBJ_SUCCESS
 
 objdir:
-	@mkdir -p $(OBJDIR)
+	@$(MK) $(OBJDIR)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CF) -c $^ -o $@
@@ -37,6 +37,13 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 OBJ_SUCCESS:
 	@echo "$(CC): objects compilation \033[0;32msuccsess\033[0m"
 # END OF LIBRARY BUILDING
+
+# UNIT-TESTS
+test: $(TARGET)
+	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(EXE)
+
+# TESTS COVERING REPORT
+gcov_report:
 
 # SERVICE
 style:

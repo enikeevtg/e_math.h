@@ -1,15 +1,14 @@
-/*
- * src/6_e_cos.c
- * (c) T. Enikeev
- * enikeev.tg@gmail.com
- */
+/**
+* src/6_e_cos.c
+* (c) T. Enikeev
+* enikeev.tg@gmail.com
+*
+* @brief cosine computing
+* @return an cos(x) value
+**/
 
 #include "../e_math.h"
 
-/*==============================================================================
-                          6 long double cos(double x)
-                              Cosine computing
-==============================================================================*/
 long double e_cos(double x) {
   x = e_fmod(x, 2 * E_PI);  // for big input value
   long double res = 0.0;
