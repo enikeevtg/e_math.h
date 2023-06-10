@@ -1,10 +1,10 @@
 /**
-* src/e_math.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Some library functions. It was wrote by my teammate
-**/
+ * src/e_math.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Some library functions. It was wrote by my teammate
+ */
 
 #include "../e_math.h"
 

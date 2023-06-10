@@ -1,11 +1,11 @@
 /**
-* src/15_e_tan.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Tangent computing
-* @return The tan(x) value
-**/
+ * src/15_e_tan.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Tangent computing
+ * @return The tan(x) value
+ */
 
 #include "../e_math.h"
 

@@ -1,8 +1,8 @@
 /**
-* src/internal_math.h
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-**/
+ * src/internal_math.h
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ */
 
 #ifndef SRC_INTERNAL_MATH_H_
 #define SRC_INTERNAL_MATH_H_

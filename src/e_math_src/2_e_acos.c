@@ -1,12 +1,12 @@
 /**
-* src/2_acos.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Arc cosine computing
-* @warning The x argument must be in the range [-1, 1]
-* @return The arccos(x) value
-**/
+ * src/2_acos.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Arc cosine computing
+ * @warning The x argument must be in the range [-1, 1]
+ * @return The arccos(x) value
+ */
 
 #include "../e_math.h"
 

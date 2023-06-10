@@ -1,11 +1,11 @@
 /**
-* src/13_e_sin.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Sine computing
-* @return The sin(x) value
-**/
+ * src/13_e_sin.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Sine computing
+ * @return The sin(x) value
+ */
 
 #include "../e_math.h"
 

@@ -1,11 +1,11 @@
 /**
-* src/6_e_cos.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Cosine computing
-* @return The cos(x) value
-**/
+ * src/6_e_cos.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Cosine computing
+ * @return The cos(x) value
+ */
 
 #include "../e_math.h"
 

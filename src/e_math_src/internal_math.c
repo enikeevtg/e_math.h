@@ -1,10 +1,10 @@
 /**
-* src/internal_math.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Some internal library functions
-**/
+ * src/internal_math.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Some internal library functions
+ */
 
 #include "../internal_mathfuncs.h"
 

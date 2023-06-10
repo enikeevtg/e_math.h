@@ -1,12 +1,12 @@
 /**
-* src/3_asin.c
-* (c) T. Enikeev
-* enikeev.tg@gmail.com
-*
-* @brief Arc sine computing
-* @warning The x argument must be in the range [-1, 1]
-* @return The arcsin(x) value
-**/
+ * src/3_asin.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Arc sine computing
+ * @warning The x argument must be in the range [-1, 1]
+ * @return The arcsin(x) value
+ */
 
 #include "../e_math.h"
 
